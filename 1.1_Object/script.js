@@ -17,17 +17,16 @@ const Wadah = {
 
 //cara arternatif yang lebih efektif dengna membuat object terpish
 //karena fungsi nya tidak tersalin di belakang ,menyebab kan lebih tidak boros
-const Hidup ={
+const Hidup = {
   waktu: function (lama) {
     this.umur += lama;
-     return console.log(
+    return console.log(
       `selama ${lama} Tahun ${Hidup.nama} Hidup umurnya menjadi ${Hidup.umur}`,
     );
-  }
-}
+  },
+};
 //kekurang nya jika membuat sebuah function lagi di object harus di daftarkan lagi di object lain nya
 //solusi dari ini kekurangan itu menggunakn Object.create
-
 
 function Hewan(nama, umur) {
   const hewan = Object.create(Hidup);
@@ -53,9 +52,7 @@ let Anjing = Hewan("anjing", 10);
 //kekurangan harus membuat varibale terpisah untuk di gunakan
 //dan harus di panggil
 
-//tetapi walapaun sudah terlihat lebih efektif tetapi tetap saja ini harus melakukan pekerjaan yang berulang/membuat dua object dan banyak function yang membuar lebih report 
-
-
+//tetapi walapaun sudah terlihat lebih efektif tetapi tetap saja ini harus melakukan pekerjaan yang berulang/membuat dua object dan banyak function yang membuar lebih report
 
 //3. Constructor Function
 //Keyword nya New
@@ -73,16 +70,62 @@ function Pohon(jenis, umur) {
 
   this.tebang = function (hancur) {
     this.umur -= this.umur;
-    this.jenis = 'Sudah di tebang'
+    this.jenis = "Sudah di tebang";
     console.log(`Terjadi penebangan untuk ${this.jenis}`);
   };
 }
 
-
-
-let pinus = new Pohon('pinus',250)
-
+let pinus = new Pohon("pinus", 250);
 
 //kelebihan lebih ringkas dan lebih dengan kinerja sama dengan function Declaration
 //kekurangan mungkin akan sedikit bingung untuk programing baru
 //kekurangan harus di panggil terlebih dulu dengan menarok di varibael
+
+
+
+//Prototype
+function berang(tangan, kaki) {
+  //di balik sistem javascript,dia membuat this menjadi sebuah object atau
+  // this = Object.create{berang.prototype}; yang terjadi di balik layar
+  this.tangan = tangan;
+  this.kaki = kaki;
+
+
+  //dan 
+  //return this; di balik layar
+};
+
+berang.prototype.gaya = function(gayaTangan,gayaKaki){
+  return `ia menggunakan Gaya ${gayaTangan} untuk tangan Dominan ${this.tangan} dan menggunakan gaya ${gayaKaki} untuk kaki domina ${this.kaki}`
+}
+
+let agus = new berang('kanan','kiri')
+
+
+
+
+//class
+
+class musim{
+  constructor(suhu,keLembapan){
+    this.suhu=suhu;
+    this.keLembapan=keLembapan
+  };
+
+
+  naik(derajat){
+ this.suhu+= derajat
+ return `terjadi kenaikan suhu sebesar ${derajat} Derajat yang menyebabkan hari ini subuh mencapai ${this.suhu} Derajat `
+  }
+
+  lembab(sering){
+    this.keLembapan+= sering
+    return `di karenakan Tahun ini hujan terjadi sebanyak ${sering} kali yang menyebab kan kelembapan meningkat ${this.keLembapan}`
+  }
+}
+
+
+let Tahun2026 = new musim(30,40);
+
+
+//secara singkat prototyep adalah sebuah bawaan sebuah object atau function sebuah method yang di buat oleh javascript dimana dia berbentuk Object.create
