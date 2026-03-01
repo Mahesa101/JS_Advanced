@@ -15,17 +15,34 @@ const Wadah = {
 
 //2. Function Declaration
 
+//cara arternatif yang lebih efektif dengna membuat object terpish
+//karena fungsi nya tidak tersalin di belakang ,menyebab kan lebih tidak boros
+const Hidup ={
+  waktu: function (lama) {
+    this.umur += lama;
+     return console.log(
+      `selama ${lama} Tahun ${Hidup.nama} Hidup umurnya menjadi ${Hidup.umur}`,
+    );
+  }
+}
+//kekurang nya jika membuat sebuah function lagi di object harus di daftarkan lagi di object lain nya
+//solusi dari ini kekurangan itu menggunakn Object.create
+
+
 function Hewan(nama, umur) {
-  const hewan = {};
+  const hewan = Object.create(Hidup);
   hewan.nama = nama;
   hewan.umur = umur;
+  // hewan.Hidup =Hidup.waktu di gatikan Object.create
 
-  hewan.waktu = function (lama) {
-    this.umur += lama;
-    console.log(
-      `selama ${lama} Tahun ${hewan.nama} Hidup umurnya menjadi ${hewan.umur}`,
-    );
-  };
+  // hewan.waktu = function (lama) {
+  //   this.umur += lama;
+  //   console.log(
+  //     `selama ${lama} Tahun ${hewan.nama} Hidup umurnya menjadi ${hewan.umur}`,
+  //   );
+  // };
+
+  //kurang efektif soale sistem itu membuat ulang sebuah function yang menyebabkan boros dalam sistem
   return hewan;
 }
 
@@ -35,6 +52,10 @@ let Anjing = Hewan("anjing", 10);
 //kelebihan dapat lebih mudah di gunakan lagi karena bersifat seperti template
 //kekurangan harus membuat varibale terpisah untuk di gunakan
 //dan harus di panggil
+
+//tetapi walapaun sudah terlihat lebih efektif tetapi tetap saja ini harus melakukan pekerjaan yang berulang/membuat dua object dan banyak function yang membuar lebih report 
+
+
 
 //3. Constructor Function
 //Keyword nya New
