@@ -61,12 +61,60 @@ const angkaChaining = [-2, 5, 7, -1, 2, 5, 3, -8, 2, 0];
 
 const Chaining = angkaChaining
   .filter((a) => {
-    return a >= 3;//5,7,5,3
+    return a >= 3; //5,7,5,3
   })
   .map((a) => {
-    return a * 3;//5*3,7*3,5*3,*3
+    return a * 3; //5*3,7*3,5*3,*3
   })
   .reduce((a, b) => {
-    return a - b;//15-21-15-9
+    return a - b; //15-21-15-9
   });
 //hasil -30
+
+//latihan soal
+//ambil semua elemet video
+const video = Array.from(document.querySelectorAll("[data-duration]"));
+
+//pilih yang meme aja
+const Meme = video
+  .filter((meme) => {
+    return meme.textContent.includes("Meme");
+  })
+
+  //ambil durasi masing2 video
+  //chaining dari const meme
+
+  .map((Durasi) => {
+    return Durasi.dataset.duration;
+  })
+
+  //ubah durasi dari string menjadi int atau float ,dan ubah menit ke detik
+  //Chaining dari meme
+  .map((Waktu) => {
+    // 10:30 -> [10,30]split
+    const parts = Waktu.split(":").map((parts) => {
+      return parseFloat(parts);
+    });
+    return parts[0] * 60 + parts[1];
+  })
+
+  //jumlah semua detik
+  .reduce((hasil, nilai) => {
+    return hasil + nilai;
+  });
+
+//ubah format dari detik ke jam menit detik
+
+const jam = Math.floor(Meme / 3600);
+const menit = Math.floor(Meme / 60);
+const detik = Meme - menit * 60;
+
+//simpan di dom
+const durasiElemet = document.querySelector(".total-durasi");
+durasiElemet.textContent = `${jam} jam , ${menit} Menit,${detik} detik`;
+
+const jumlahV = video.filter((meme) => {
+  return meme.textContent.includes("Meme");
+}).length;
+const hasilV = document.querySelector(".jumlha-v");
+hasilV.textContent = `${jumlahV} jumlah Video`;
