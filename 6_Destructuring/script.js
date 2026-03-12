@@ -80,7 +80,7 @@ console.log(umurL);
 
 //membarikan Default value
 const barang = {
-    id:2746247,
+  id: 2746247,
   kardus: "lembek",
   gelas: "plastik",
   kertas: "mudah terbakar",
@@ -94,11 +94,9 @@ const barang = {
 
 //dapat juga menggunakan rest para meter
 
-const{kardus,...value}=barang;
+const { kardus, ...value } = barang;
 console.log(kardus);
 console.log(value);
-
-
 
 //dapat juga mengabil filed pada object atau bahasa keren nya nilai pada object
 
@@ -107,18 +105,66 @@ console.log(value);
 //     return ambilId.id;
 // };
 
-
 // console.log(getId(barang));
 
-
 //cara menggukana filed
-function getId({id}){
-    return id;
-};
-
+function getId({ id }) {
+  return id;
+}
 
 console.log(getId(barang));
 //dimana parameter di isi barang sebagi pencarian data nya
 
+//fucnction
 
+function jumlahKali(a, b) {
+  return [a + b, a * b];
+}
 
+//cara biasa
+// const jumlah =jumlahKali(5,5)[0];
+// const kali =jumlahKali(3,3)[1]
+
+//cara dengan menggunakan Destructuring
+const [j, k] = jumlahKali(5, 5);
+
+//kekurangan dari array adalah di uruatannya dimana urutannya tidak bisa di ubah atau paten
+//oleh karena itu jika tidak mau dengan urutan yang paten maka sebaiknnya menggunakan object
+
+function kalkulasi(a, b) {
+  return {
+    tambah: a + b,
+    kurang: a - b,
+    kali: a * b,
+  };
+}
+
+const { kurang: r, tambah: m, kali: i } = kalkulasi(4, 5);
+
+//Destructuring function argument
+//dimana dapat memecah yang dapat di gunakan di argument
+
+const data = {
+  depan: "agus bambang",
+  belakang: 3444,
+  nilai: {
+    pai: 80,
+    jawa: 79,
+    mtk: 90,
+  },
+};
+
+//dengan tanpa Destructuring
+// function cetak(mhs){
+//     return `Halo, selamat datang ${mhs.depan},dengan umur ${mhs.belakang}`
+// };
+
+//dengan Destructuring
+
+function cetak({ depan, belakang, nilai: { pai, jawa, mtk } }) {
+  return `Halo, selamat datang ${depan},dengan umur ${belakang},selamat nilai pai mu ${pai}, jawa ${jawa},mtk ${mtk}`;
+}
+
+console.log(cetak(data));
+
+//salah satu fungsi dari Destructuring function itu adalah menggukana object bersarang
