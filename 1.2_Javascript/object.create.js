@@ -86,16 +86,16 @@ let sun = new UserC("sun", 30, 3);
 // ==========================================
 // PENAMBAHAN: Cara paling efektif karena menggunakan konsep Prototype Inheritance.
 
-const methodUser = {
-  actions: function (ac) {
-    this.stamina -= this.attack * ac;
-    console.log(`[Action] ${this.nama} menyerang! Sisa Stamina: ${this.stamina}`);
-  },
-  sleeps: function (time) {
-    this.stamina += time * 5;
-    console.log(`[Sleep] ${this.nama} istirahat. Stamina: ${this.stamina}`);
-  },
-};
+// const methodUser = {
+//   actions: function (ac) {
+//     this.stamina -= this.attack * ac;
+//     console.log(`[Action] ${this.nama} menyerang! Sisa Stamina: ${this.stamina}`);
+//   },
+//   sleeps: function (time) {
+//     this.stamina += time * 5;
+//     console.log(`[Sleep] ${this.nama} istirahat. Stamina: ${this.stamina}`);
+//   },
+// };
 
 
 function UsersOptimized(name, energy, serang) {
@@ -114,5 +114,5 @@ function UsersOptimized(name, energy, serang) {
 // Kenapa Object.create lebih sakti?
 // Jika JS tidak menemukan method 'actions' di dalam object 'bayu', 
 // JS akan otomatis mencari ke "atas" (ke object methodUser) secara otomatis.
-let bayu = Users("bayu", 20, 5);
-let mamat = Users("mamat", 30, 3);
+let king = UsersOptimized("King", 20, 5);
+let quen = UsersOptimized("Quen", 30, 3);
