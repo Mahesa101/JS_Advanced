@@ -46,3 +46,4 @@ class Hero {
 }
 
 let nouw = new Hero("nouw", 5, 1);
+console.log(nouw.actions());
