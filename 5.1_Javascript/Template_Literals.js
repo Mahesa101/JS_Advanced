@@ -1,4 +1,4 @@
-// 5.1 Latihan Template Literals
+// 5.1 Template Literals
 
 // 1. Multi-line String
 // Fitur ini menjaga whitespace dan baris baru tanpa perlu karakter escape seperti \n
