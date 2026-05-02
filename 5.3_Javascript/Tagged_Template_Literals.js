@@ -9,6 +9,13 @@ const userAge = 35;
  * @param {Array} expressions - Array dari hasil evaluasi variabel ${}
  */
 function reconstructString(strings, ...expressions) {
+  // let result = "";
+
+  // strings.forEach((str, i) => {
+  //   result += `${str}${expressions[i] || ""}`;
+  // });
+  // return result;
+
   // Logic: Menggabungkan kembali string statis dengan expression variabelnya
   // Kita menggunakan .reduce untuk iterasi setiap elemen dalam array strings
   return strings.reduce((accumulator, currentString, index) => {
