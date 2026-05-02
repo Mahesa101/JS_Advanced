@@ -1,5 +1,6 @@
 // 6.1 Destructuring Assignment
 
+
 // --- 1. Destructuring Array ---
 // Memetakan isi array ke dalam variabel individual secara urut
 const introWords = ["Hallo", "Nama", "Saya", "Arthur"];
