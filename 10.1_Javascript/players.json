@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "username": "ShadowBlade",
+    "level": 99,
+    "class": "Assassin",
+    "guild": "DarkLegion",
+    "strength": 2500,
+    "agility": 3200,
+    "intelligence": 1200,
+    "totalPlayTime": 1250,
+    "items": ["Excalibur", "Dragon Armor", "Phoenix Boots"],
+    "isOnline": true
+  },
+  {
+    "id": 2,
+    "username": "MageQueen",
+    "level": 97,
+    "class": "Wizard",
+    "guild": "ArcaneOrder",
+    "strength": 800,
+    "agility": 1500,
+    "intelligence": 4500,
+    "totalPlayTime": 980,
+    "items": ["Staff of Eternity", "Robe of the Archmage", "Ring of Power"],
+    "isOnline": false
+  },
+  {
+    "id": 3,
+    "username": "WarriorKing",
+    "level": 100,
+    "class": "Warrior",
+    "guild": "IronFist",
+    "strength": 5000,
+    "agility": 2000,
+    "intelligence": 500,
+    "totalPlayTime": 2100,
+    "items": ["Hammer of Thunder", "Shield of Valor", "Helm of Might"],
+    "isOnline": true
+  }
+]
